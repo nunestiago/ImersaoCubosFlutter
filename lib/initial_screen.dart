@@ -1,16 +1,29 @@
 import 'package:flutter/material.dart';
 import 'trivia_screen.dart';
 
-class InitialScreen extends StatelessWidget {
+bool _light = true;
+
+class InitialScreen extends StatefulWidget {
+  @override
+  _InitialScreenState createState() => _InitialScreenState();
+}
+
+class _InitialScreenState extends State<InitialScreen> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.white,
-      child: Column(
+    return Scaffold(
+      body: Column(
         children: [
           SizedBox(
             height: 167.0,
           ),
+          Switch(
+              value: _light,
+              onChanged: (state) {
+                setState(() {
+                  _light = state;
+                });
+              }),
           Image(
             image: AssetImage('lib/assets/logo.png'),
           ),
