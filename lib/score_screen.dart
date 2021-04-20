@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 
-class ScoreScreen extends StatelessWidget {
+// ignore: must_be_immutable
+class ScoreScreen extends StatefulWidget {
   int result;
   int maximum;
 
   ScoreScreen({Key key, @required this.result, @required this.maximum})
       : super(key: key);
 
+  @override
+  _ScoreScreenState createState() => _ScoreScreenState();
+}
+
+class _ScoreScreenState extends State<ScoreScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,14 +45,14 @@ class ScoreScreen extends StatelessWidget {
                 textBaseline: TextBaseline.alphabetic,
                 children: [
                   Text(
-                    '$result',
+                    '${widget.result}',
                     style: TextStyle(
                         fontSize: 80,
                         fontWeight: FontWeight.w800,
                         color: Color(0xffDA0175)),
                   ),
                   Text(
-                    '/ $maximum',
+                    '/ ${widget.maximum}',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
